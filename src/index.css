@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+.navLink {
+  @apply inline-flex items-center px-1 pt-1 border-b-2
+}
+.activeLink {
+  @apply  border-indigo-500 text-sm font-medium text-white
+}
+
+.inactiveLink {
+  @apply  border-transparent text-sm font-medium text-gray-300 hover:text-white
+}

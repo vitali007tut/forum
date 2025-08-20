@@ -1,0 +1,46 @@
+{
+    "navigation": {
+        "logo": "Forum",
+        "home": "Home",
+        "posts": "Posts",
+        "users": "Users",
+        "profile": "Profile"
+    },
+    "home": {
+        "title": "Welcome to the Forum!",
+        "description": "Here you can view posts, comments and manage content."
+    },
+    "posts": {
+        "title": "Posts List",
+        "filter_by_user": "Filter by user",
+        "all_users": "All users",
+        "create_post": "Create Post",
+        "delete": "Delete",
+        "likes": "Likes",
+        "dislikes": "Dislikes",
+        "favorite": "Favorite",
+        "favorites": "Favorites"
+    },
+    "post": {
+        "title": "Post",
+        "comments": "Comments",
+        "add_comment": "Add comment",
+        "no_comments": "No comments yet"
+    },
+    "users": {
+        "title": "Users",
+        "edit": "Edit"
+    },
+    "profile": {
+        "title": "Profile",
+        "name": "Name",
+        "email": "Email",
+        "address": "Address",
+        "edit": "Edit Profile"
+    },
+    "admin": {
+        "admin_panel": "Admin Panel",
+        "user_management": "User Management",
+        "set_priority": "Set Priority"
+    }
+}
