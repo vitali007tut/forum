@@ -7,7 +7,7 @@ import { UserProvider } from './contexts/UserContext';
 
 const App: React.FC = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/forum/">
             <UserProvider>
                 <div className="min-h-screen bg-gray-900 flex flex-col">
                     <Header />
