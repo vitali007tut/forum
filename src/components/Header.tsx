@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navigation from './Navigation';
+import { useUser } from '../hooks/useUser';
 
 const Header: React.FC = () => {
     const { t } = useTranslation();
+    const { selectedUser, isSuperUserSelected } = useUser();
 
     return (
         <header className="bg-gray-800 shadow-sm">
@@ -12,9 +14,28 @@ const Header: React.FC = () => {
                 <div className="flex justify-between h-16">
                     <div className="flex space-x-8">
                         <Link to="/" className="flex items-center text-white font-bold text-xl">
-                            {t('navigation.logo')}
+                            {t('header.logo')}
                         </Link>
-                        <Navigation/>
+                        <Navigation />
+                    </div>
+
+                    <div className="flex items-center">
+                        {selectedUser ? (
+                            <div className="flex items-center space-x-2">
+                                <span className="text-gray-300">{t('header.hi')}</span>
+                                <span
+                                    className={`px-3 py-1 rounded-full text-sm font-medium ${
+                                        isSuperUserSelected
+                                            ? 'bg-yellow-600 text-gray-900 font-bold shadow-lg shadow-yellow-500/30'
+                                            : 'bg-indigo-600 text-white'
+                                    }`}
+                                >
+                                    {selectedUser.username}
+                                </span>
+                            </div>
+                        ) : (
+                            <span className="text-gray-400 text-sm">{t('header.no_user')}</span>
+                        )}
                     </div>
                 </div>
             </div>

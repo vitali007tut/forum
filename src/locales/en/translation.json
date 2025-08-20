@@ -1,14 +1,21 @@
 {
     "navigation": {
-        "logo": "Forum",
-        "home": "Home",
-        "posts": "Posts",
-        "users": "Users",
-        "profile": "Profile"
+        "select": "Select User",
+        "posts": "Posts"
     },
-    "home": {
-        "title": "Welcome to the Forum!",
-        "description": "Here you can view posts, comments and manage content."
+    "header": {
+        "logo": "Forum",
+        "hi": "Hi,",
+        "no_user": "No user selected"
+    },
+    "users": {
+        "special_users": "Special Users",
+        "forum_users": "Forum Users",
+        "super_admin": "Super Admin",
+        "full_access": "Full system access",
+        "loading": "Loading users...",
+        "error": "Error",
+        "clear_selection": "Clear Selection"
     },
     "posts": {
         "title": "Posts List",
@@ -27,12 +34,8 @@
         "add_comment": "Add comment",
         "no_comments": "No comments yet"
     },
-    "users": {
-        "title": "Users",
-        "edit": "Edit"
-    },
     "profile": {
-        "title": "Profile",
+        "title": "Personal account",
         "name": "Name",
         "email": "Email",
         "address": "Address",
