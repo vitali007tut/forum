@@ -11,8 +11,14 @@ export const api = {
         return response.json();
     },
 
-    getUserById: async (id: number): Promise<User> => {
-        const response = await fetch(`${API_BASE_URL}/users/${id}`);
+    updateUser: async (updatedUser: User): Promise<User> => {
+        const response = await fetch(`${API_BASE_URL}/users/${updatedUser.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedUser),
+        });
         if (!response.ok) {
             throw new Error('Failed to fetch user');
         }

@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navigation from './Navigation';
-import { useUser } from '../hooks/useUser';
+import { useUserStore } from '../store/useUserStore';
 
 const Header: React.FC = () => {
     const { t } = useTranslation();
-    const { selectedUser, isSuperUserSelected } = useUser();
+    const { selectedUser, isSuperUserSelected } = useUserStore();
 
     return (
         <header className="bg-gray-800 shadow-sm">
@@ -30,6 +30,9 @@ const Header: React.FC = () => {
                                             : 'bg-indigo-600 text-white'
                                     }`}
                                 >
+                                    {isSuperUserSelected && (
+                                        <span>★ </span>
+                                    )}
                                     {selectedUser.username}
                                 </span>
                             </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useUser } from '../hooks/useUser';
+import { useUserStore } from '../store/useUserStore';
 
 const Navigation: React.FC = () => {
     const { t } = useTranslation();
-    const { selectedUser } = useUser();
+    const { selectedUser, isSuperUserSelected } = useUserStore();
 
     return (
         <nav className="flex space-x-8">
@@ -23,10 +23,10 @@ const Navigation: React.FC = () => {
             </NavLink>
             {selectedUser && (
                 <NavLink
-                    to="/profile"
+                    to={isSuperUserSelected ? '/profile' : `/profile/${selectedUser.id}`}
                     className={({ isActive }) => `navLink ${isActive ? 'activeLink' : 'inactiveLink'}`}
                 >
-                    {t('profile.title')}
+                    {t('navigation.profile')}
                 </NavLink>
             )}
         </nav>

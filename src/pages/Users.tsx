@@ -1,6 +1,6 @@
 import React from 'react';
-import { useUser } from '../hooks/useUser';
 import { useTranslation } from 'react-i18next';
+import { useUserStore } from '../store/useUserStore';
 
 const Users: React.FC = () => {
     const {
@@ -12,7 +12,7 @@ const Users: React.FC = () => {
         selectedUser,
         isSuperUserSelected,
         clearSelection,
-    } = useUser();
+    } = useUserStore();
     const { t } = useTranslation();
 
     if (loading) {

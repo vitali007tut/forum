@@ -1,7 +1,8 @@
 {
     "navigation": {
         "select": "Select User",
-        "posts": "Posts"
+        "posts": "Posts",
+        "profile": "Personal account"
     },
     "header": {
         "logo": "Forum",
@@ -34,12 +35,30 @@
         "add_comment": "Add comment",
         "no_comments": "No comments yet"
     },
-    "profile": {
-        "title": "Personal account",
-        "name": "Name",
-        "email": "Email",
-        "address": "Address",
-        "edit": "Edit Profile"
+"profile": {
+    "profile": "Profile",
+    "editing_profile": "Editing Profile",
+    "name": "Name",
+    "username": "Username",
+    "email": "Email",
+    "city": "City",
+    "phone": "Phone",
+    "website": "Website",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "user_management": "User Management",
+    "back_to_users": "Back to Users",
+    "no_user_selected": "No User Selected",
+    "select_user_first": "Please select a user first to view their profile.",
+    "update_success": "User updated successfully!",
+    "update_error": "Failed to update user. Please try again.",
+    "errors": {
+        "name_required": "Name is required",
+        "username_required": "Username is required",
+        "email_required": "Email is required",
+        "email_invalid": "Please enter a valid email address"
+    }
     },
     "admin": {
         "admin_panel": "Admin Panel",
