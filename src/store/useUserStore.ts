@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import type { User } from '../types/user';
-import { api } from '../services/api';
+import { apiUsers } from '../api/users';
 
 interface UserState {
     users: User[];
@@ -33,7 +33,7 @@ export const useUserStore = create<UserState>((set, get) => ({
     fetchUsers: async () => {
         try {
             set({ loading: true, error: null });
-            const users = await api.getUsers();
+            const users = await apiUsers.getUsers();
             set({ users, loading: false });
         } catch (error) {
             set({
@@ -66,7 +66,7 @@ export const useUserStore = create<UserState>((set, get) => ({
 
     updateUser: async (updatedUser: User) => {
         try {
-            const updatedUserData = await api.updateUser(updatedUser);
+            const updatedUserData = await apiUsers.updateUser(updatedUser);
             const { users } = get();
             const updatedUsers = users.map((user) =>
                 user.id === updatedUserData.id ? updatedUserData : user
