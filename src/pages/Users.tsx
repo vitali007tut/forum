@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUserStore } from '../store/useUserStore';
 
@@ -14,6 +14,10 @@ const Users: React.FC = () => {
         clearSelection,
     } = useUserStore();
     const { t } = useTranslation();
+
+    useEffect(() => {
+        document.title = `${t('users.forum_users')}`;
+    }, [t]);
 
     if (loading) {
         return (

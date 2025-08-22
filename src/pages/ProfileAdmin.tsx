@@ -1,11 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { useUserStore } from '../store/useUserStore';
 import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const ProfileAdmin = () => {
     const { users, isSuperUserSelected } = useUserStore();
     const { t } = useTranslation();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        document.title = `${ t('profile.user_management') }`;
+    }, [t]);
 
     if (!isSuperUserSelected) navigate("/");
 

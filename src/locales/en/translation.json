@@ -10,7 +10,6 @@
         "no_user": "No user selected"
     },
     "users": {
-        "special_users": "Special Users",
         "forum_users": "Forum Users",
         "super_admin": "Super Admin",
         "full_access": "Full system access",

@@ -20,6 +20,10 @@ const Profile: React.FC = () => {
     const displayUser = users.find((user) => user.id === Number(id));
 
     useEffect(() => {
+        document.title = `${t('profile.profile')} | ${isSuperUserSelected ? 'Admin' : displayUser?.username}`;
+    }, [displayUser?.username, isSuperUserSelected, t]);
+
+    useEffect(() => {
         if (displayUser) {
             setEditedUser(displayUser);
             setIsEditing(false);
@@ -107,13 +111,13 @@ const Profile: React.FC = () => {
                                             setEditedUser(displayUser);
                                             setErrors({});
                                         }}
-                                        className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors text-sm font-medium"
+                                        className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors text-sm font-medium cursor-pointer"
                                     >
                                         {t('profile.cancel')}
                                     </button>
                                     <button
                                         onClick={handleSave}
-                                        className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors text-sm font-medium"
+                                        className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors text-sm font-medium cursor-pointer"
                                     >
                                         {t('profile.save')}
                                     </button>
@@ -121,7 +125,7 @@ const Profile: React.FC = () => {
                             ) : (
                                 <button
                                     onClick={() => setIsEditing(true)}
-                                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors text-sm font-medium"
+                                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors text-sm font-medium cursor-pointer"
                                 >
                                     {t('profile.edit')}
                                 </button>

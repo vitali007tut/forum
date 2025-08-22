@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const Posts = () => {
     const { t } = useTranslation();
+
+      useEffect(() => {
+          document.title = t('posts.title');
+      }, [t]);
 
     return (
         <div className="px-4 py-6 sm:px-0">

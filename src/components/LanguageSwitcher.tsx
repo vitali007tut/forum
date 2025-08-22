@@ -14,8 +14,8 @@ const LanguageSwitcher: React.FC = () => {
                 onClick={() => changeLanguage('en')}
                 className={`px-3 py-1 rounded text-sm font-medium ${
                     i18n.language.startsWith('en')
-                        ? 'bg-blue-500 text-white'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600'
+                        ? 'bg-blue-500 text-white cursor-default'
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer'
                 }`}
             >
                 EN
@@ -24,8 +24,8 @@ const LanguageSwitcher: React.FC = () => {
                 onClick={() => changeLanguage('ru')}
                 className={`px-3 py-1 rounded text-sm font-medium ${
                     i18n.language.startsWith('ru')
-                        ? 'bg-blue-500 text-white'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600'
+                        ? 'bg-blue-500 text-white cursor-default'
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer'
                 }`}
             >
                 RU
