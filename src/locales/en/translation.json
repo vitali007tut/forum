@@ -26,7 +26,9 @@
         "likes": "Likes",
         "dislikes": "Dislikes",
         "favorite": "Favorite",
-        "favorites": "Favorites"
+        "favorites": "Favorites",
+        "clear_all": "Clear all",
+        "select_all": "Select all"
     },
     "post": {
         "title": "Post",

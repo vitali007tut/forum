@@ -11,7 +11,7 @@ interface PostState {
     postsPerPage: number;
 
     fetchPosts: (page?: number) => Promise<void>;
-    filterByUser: (userId: number | null) => void;
+    filterByUser: (userId: number[] | null) => void;
     setCurrentPage: (page: number) => void;
 }
 
@@ -27,7 +27,7 @@ export const usePostStore = create<PostState>((set, get) => ({
         set({ loading: true, error: null });
         try {
             const posts = await apiPosts.getPosts();
-            const reversedPosts = posts.sort((a, b) => b.id - a.id)
+            const reversedPosts = posts.sort((a, b) => b.id - a.id);
             set({
                 posts,
                 filteredPosts: reversedPosts,
@@ -44,12 +44,11 @@ export const usePostStore = create<PostState>((set, get) => ({
 
     filterByUser: (userId) => {
         const { posts } = get();
-        const reversedPosts = posts.sort((a, b) => b.id - a.id);
-        if (!userId) {
-            set({ filteredPosts: reversedPosts, currentPage: 1 });
+        if (userId === null) {
+            set({ filteredPosts: posts });
         } else {
-            const filtered = reversedPosts.filter((post) => post.userId === userId);
-            set({ filteredPosts: filtered, currentPage: 1 });
+            const filtered = posts.filter((post) => userId.includes(post.userId));
+            set({ filteredPosts: filtered });
         }
     },
 

@@ -2,25 +2,16 @@ import { useEffect } from 'react';
 import { usePostStore } from '../store/usePostStore';
 import PostsTable from '../components/PostsTable';
 import { useTranslation } from 'react-i18next';
-import { useUserStore } from '../store/useUserStore';
+import UserFilter from '../components/UserFilter';
 
 const Posts = () => {
-    const { loading, error, currentPage, postsPerPage, setCurrentPage, filterByUser } = usePostStore();
+    const { loading, error, currentPage, postsPerPage, setCurrentPage } = usePostStore();
 
-    const { selectedUser } = useUserStore();
     const { t } = useTranslation();
 
     useEffect(() => {
         document.title = t('posts.title');
     }, [t]);
-
-    useEffect(() => {
-        if (selectedUser) {
-            filterByUser(selectedUser.id);
-        } else {
-            filterByUser(null);
-        }
-    }, [selectedUser, filterByUser]);
 
     const { filteredPosts } = usePostStore();
 
@@ -28,6 +19,7 @@ const Posts = () => {
 
     return (
         <div className="border border-gray-700 rounded-lg p-8 bg-gray-800">
+            <UserFilter />
             <PostsTable
                 posts={filteredPosts}
                 loading={loading}

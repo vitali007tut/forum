@@ -6,8 +6,7 @@ import { useUserStore } from '../store/useUserStore';
 import { Link, useParams } from 'react-router-dom';
 
 const Profile: React.FC = () => {
-    const { selectedUser, users, isSuperUserSelected, updateUser } =
-        useUserStore();
+    const { selectedUser, users, isSuperUserSelected, updateUser } = useUserStore();
     const { id } = useParams();
 
     const { showNotification } = useNotification();
@@ -95,178 +94,174 @@ const Profile: React.FC = () => {
         };
 
         return (
-            <div className="px-4 py-6 sm:px-0">
-                <div className="border border-gray-700 rounded-lg p-8 bg-gray-800">
-                    <div className="flex justify-between items-center mb-6">
-                        <h1 className="text-2xl font-bold text-white">
-                            {isEditing ? t('profile.editing_profile') : t('profile.profile')}
-                        </h1>
+            <div className="border border-gray-700 rounded-lg p-8 bg-gray-800">
+                <div className="flex justify-between items-center mb-6">
+                    <h1 className="text-2xl font-bold text-white">
+                        {isEditing ? t('profile.editing_profile') : t('profile.profile')}
+                    </h1>
 
-                        <div className="flex space-x-2">
-                            {isEditing ? (
-                                <>
-                                    <button
-                                        onClick={() => {
-                                            setIsEditing(false);
-                                            setEditedUser(displayUser);
-                                            setErrors({});
-                                        }}
-                                        className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors text-sm font-medium cursor-pointer"
-                                    >
-                                        {t('profile.cancel')}
-                                    </button>
-                                    <button
-                                        onClick={handleSave}
-                                        className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors text-sm font-medium cursor-pointer"
-                                    >
-                                        {t('profile.save')}
-                                    </button>
-                                </>
-                            ) : (
+                    <div className="flex space-x-2">
+                        {isEditing ? (
+                            <>
                                 <button
-                                    onClick={() => setIsEditing(true)}
-                                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors text-sm font-medium cursor-pointer"
+                                    onClick={() => {
+                                        setIsEditing(false);
+                                        setEditedUser(displayUser);
+                                        setErrors({});
+                                    }}
+                                    className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors text-sm font-medium cursor-pointer"
                                 >
-                                    {t('profile.edit')}
+                                    {t('profile.cancel')}
                                 </button>
+                                <button
+                                    onClick={handleSave}
+                                    className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors text-sm font-medium cursor-pointer"
+                                >
+                                    {t('profile.save')}
+                                </button>
+                            </>
+                        ) : (
+                            <button
+                                onClick={() => setIsEditing(true)}
+                                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors text-sm font-medium cursor-pointer"
+                            >
+                                {t('profile.edit')}
+                            </button>
+                        )}
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <div className="mb-4">
+                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                                {t('profile.name')}
+                            </label>
+                            {isEditing ? (
+                                <input
+                                    type="text"
+                                    value={editedUser?.name || ''}
+                                    onChange={(e) => handleChange('name', e.target.value)}
+                                    className={`w-full px-3 py-2 bg-gray-700 border ${
+                                        errors.name ? 'border-red-500' : 'border-gray-600'
+                                    } rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                                />
+                            ) : (
+                                <p className="text-white">{displayUser.name}</p>
+                            )}
+                            {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                                {t('profile.username')}
+                            </label>
+                            {isEditing ? (
+                                <input
+                                    type="text"
+                                    value={editedUser?.username || ''}
+                                    onChange={(e) => handleChange('username', e.target.value)}
+                                    className={`w-full px-3 py-2 bg-gray-700 border ${
+                                        errors.username ? 'border-red-500' : 'border-gray-600'
+                                    } rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                                />
+                            ) : (
+                                <p className="text-white">{displayUser.username}</p>
+                            )}
+                            {errors.username && (
+                                <p className="text-red-400 text-sm mt-1">{errors.username}</p>
+                            )}
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                                {t('profile.email')}
+                            </label>
+                            {isEditing ? (
+                                <input
+                                    type="email"
+                                    value={editedUser?.email || ''}
+                                    onChange={(e) => handleChange('email', e.target.value)}
+                                    className={`w-full px-3 py-2 bg-gray-700 border ${
+                                        errors.email ? 'border-red-500' : 'border-gray-600'
+                                    } rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                                />
+                            ) : (
+                                <p className="text-white">{displayUser.email}</p>
+                            )}
+                            {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="mb-4">
+                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                                {t('profile.city')}
+                            </label>
+                            {isEditing ? (
+                                <input
+                                    type="text"
+                                    value={editedUser?.address?.city || ''}
+                                    onChange={(e) => handleAddressChange('city', e.target.value)}
+                                    className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                />
+                            ) : (
+                                <p className="text-white">{displayUser.address?.city}</p>
+                            )}
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                                {t('profile.phone')}
+                            </label>
+                            {isEditing ? (
+                                <input
+                                    type="text"
+                                    value={editedUser?.phone || ''}
+                                    onChange={(e) => handleChange('phone', e.target.value)}
+                                    className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                />
+                            ) : (
+                                <p className="text-white">{displayUser.phone}</p>
+                            )}
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                                {t('profile.website')}
+                            </label>
+                            {isEditing ? (
+                                <input
+                                    type="text"
+                                    value={editedUser?.website || ''}
+                                    onChange={(e) => handleChange('website', e.target.value)}
+                                    className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                />
+                            ) : (
+                                <p className="text-white">{displayUser.website}</p>
                             )}
                         </div>
                     </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-300 mb-1">
-                                    {t('profile.name')}
-                                </label>
-                                {isEditing ? (
-                                    <input
-                                        type="text"
-                                        value={editedUser?.name || ''}
-                                        onChange={(e) => handleChange('name', e.target.value)}
-                                        className={`w-full px-3 py-2 bg-gray-700 border ${
-                                            errors.name ? 'border-red-500' : 'border-gray-600'
-                                        } rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500`}
-                                    />
-                                ) : (
-                                    <p className="text-white">{displayUser.name}</p>
-                                )}
-                                {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
-                            </div>
-
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-300 mb-1">
-                                    {t('profile.username')}
-                                </label>
-                                {isEditing ? (
-                                    <input
-                                        type="text"
-                                        value={editedUser?.username || ''}
-                                        onChange={(e) => handleChange('username', e.target.value)}
-                                        className={`w-full px-3 py-2 bg-gray-700 border ${
-                                            errors.username ? 'border-red-500' : 'border-gray-600'
-                                        } rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500`}
-                                    />
-                                ) : (
-                                    <p className="text-white">{displayUser.username}</p>
-                                )}
-                                {errors.username && (
-                                    <p className="text-red-400 text-sm mt-1">{errors.username}</p>
-                                )}
-                            </div>
-
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-300 mb-1">
-                                    {t('profile.email')}
-                                </label>
-                                {isEditing ? (
-                                    <input
-                                        type="email"
-                                        value={editedUser?.email || ''}
-                                        onChange={(e) => handleChange('email', e.target.value)}
-                                        className={`w-full px-3 py-2 bg-gray-700 border ${
-                                            errors.email ? 'border-red-500' : 'border-gray-600'
-                                        } rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500`}
-                                    />
-                                ) : (
-                                    <p className="text-white">{displayUser.email}</p>
-                                )}
-                                {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
-                            </div>
-                        </div>
-
-                        <div>
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-300 mb-1">
-                                    {t('profile.city')}
-                                </label>
-                                {isEditing ? (
-                                    <input
-                                        type="text"
-                                        value={editedUser?.address?.city || ''}
-                                        onChange={(e) => handleAddressChange('city', e.target.value)}
-                                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                    />
-                                ) : (
-                                    <p className="text-white">{displayUser.address?.city}</p>
-                                )}
-                            </div>
-
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-300 mb-1">
-                                    {t('profile.phone')}
-                                </label>
-                                {isEditing ? (
-                                    <input
-                                        type="text"
-                                        value={editedUser?.phone || ''}
-                                        onChange={(e) => handleChange('phone', e.target.value)}
-                                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                    />
-                                ) : (
-                                    <p className="text-white">{displayUser.phone}</p>
-                                )}
-                            </div>
-
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-300 mb-1">
-                                    {t('profile.website')}
-                                </label>
-                                {isEditing ? (
-                                    <input
-                                        type="text"
-                                        value={editedUser?.website || ''}
-                                        onChange={(e) => handleChange('website', e.target.value)}
-                                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                    />
-                                ) : (
-                                    <p className="text-white">{displayUser.website}</p>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-
-                    {isSuperUserSelected && (
-                        <div className="mt-6">
-                            <Link
-                                to={'/profile'}
-                                className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors text-sm font-medium"
-                            >
-                                ← {t('profile.back_to_users')}
-                            </Link>
-                        </div>
-                    )}
                 </div>
+
+                {isSuperUserSelected && (
+                    <div className="mt-6">
+                        <Link
+                            to={'/profile'}
+                            className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors text-sm font-medium"
+                        >
+                            ← {t('profile.back_to_users')}
+                        </Link>
+                    </div>
+                )}
             </div>
         );
     }
 
     return (
-        <div className="px-4 py-6 sm:px-0">
-            <div className="border border-gray-700 rounded-lg p-8 bg-gray-800">
-                <h1 className="text-2xl font-bold text-white mb-4">{t('profile.no_user_selected')}</h1>
-                <p className="text-gray-300">{t('profile.select_user_first')}</p>
-            </div>
+        <div className="border border-gray-700 rounded-lg p-8 bg-gray-800">
+            <h1 className="text-2xl font-bold text-white mb-4">{t('profile.no_user_selected')}</h1>
+            <p className="text-gray-300">{t('profile.select_user_first')}</p>
         </div>
     );
 };
