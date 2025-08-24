@@ -26,4 +26,14 @@ export const apiPosts = {
 
         return response.json();
     },
+
+    deletePost: async (postId: number): Promise<void> => {
+        const response = await fetch(`${API_BASE_URL}/posts/${postId}`, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to delete post');
+        }
+    },
 };

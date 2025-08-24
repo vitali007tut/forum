@@ -36,7 +36,9 @@
         "create": "Create",
         "creating": "Creating...",
         "create_success": "Post created successfully!",
-        "create_error": "Failed to create post"
+        "create_error": "Failed to create post",
+        "delete_success": "Post deleted successfully!",
+        "delete_error": "Failed to delete post"
     },
     "post": {
         "title": "Post",

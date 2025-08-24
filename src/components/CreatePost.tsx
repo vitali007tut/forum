@@ -49,6 +49,7 @@ const CreatePost = ({ isOpen, onClose }: CreatePostProps) => {
                 title,
                 body,
                 userId: selectedUser.id,
+                order: 0
             });
 
             addPost({ ...response });
