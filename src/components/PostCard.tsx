@@ -3,12 +3,14 @@ import { useUserStore } from '../store/useUserStore';
 import { useNotification } from '../hooks/useNotification';
 import { useTranslation } from 'react-i18next';
 import type { Post } from '../types/post';
+import { useNavigate } from 'react-router-dom';
 
 const PostCard = ({ post }: { post: Post }) => {
     const { orderPost, movePostUp, movePostDown, deletePost, posts } = usePostStore();
     const { isSuperUserSelected, selectedUser, users } = useUserStore();
     const { showNotification } = useNotification();
     const { t } = useTranslation();
+    const navigate = useNavigate();
 
     const isFirst = post.order === 1;
     const isLast = post.order === posts.length;
@@ -25,7 +27,10 @@ const PostCard = ({ post }: { post: Post }) => {
     };
 
     return (
-        <div className="flex items-center justify-between border rounded-lg px-2 py-1 shadow-sm hover:shadow-md transition-shadow bg-white dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 cursor-pointer">
+        <div
+            onClick={() => navigate(`/post/${post.id}`)}
+            className="flex items-center justify-between border rounded-lg px-2 py-1 shadow-sm hover:shadow-md transition-shadow bg-white dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 cursor-pointer"
+        >
             {isSuperUserSelected && (
                 <div className="flex space-x-2 mr-3">
                     {!isFirst && (
@@ -57,7 +62,7 @@ const PostCard = ({ post }: { post: Post }) => {
 
             <h3 className="flex-1 text-lg font-semibold text-gray-900 dark:text-white line-clamp-1">
                 <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Post ID: {post.id} | {users.find(x => x.id === post.userId)?.username} | Order: {post.order}{' '}
+                    id: {post.id} | order: {post.order} | {users.find((x) => x.id === post.userId)?.username}{' '}
                 </span>
                 {post.title}
             </h3>

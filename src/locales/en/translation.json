@@ -44,7 +44,11 @@
         "title": "Post",
         "comments": "Comments",
         "add_comment": "Add comment",
-        "no_comments": "No comments yet"
+        "no_comments": "No comments yet",
+        "back": "Back",
+        "select_user_to_comment": "Select a user to add a comment",
+        "comment_name": "Name",
+        "comment_body": "Body"
     },
 "profile": {
     "profile": "Profile",

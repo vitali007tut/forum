@@ -1,4 +1,4 @@
-import type { Post } from "../types/post";
+import type { Post, Comment } from "../types/post";
 
 const API_BASE_URL = 'https://jsonplaceholder.typicode.com';
 
@@ -35,5 +35,21 @@ export const apiPosts = {
         if (!response.ok) {
             throw new Error('Failed to delete post');
         }
+    },
+
+    getPost: async (postId: number): Promise<Post> => {
+        const response = await fetch(`${API_BASE_URL}/posts/${postId}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch posts');
+        }
+        return response.json();
+    },
+
+    getCommentsByPostId: async (postId: number): Promise<Comment[]> => {
+        const response = await fetch(`${API_BASE_URL}/posts/${postId}/comments`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch posts');
+        }
+        return response.json();
     },
 };
