@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Post } from '../types/post';
-import { Star } from 'lucide-react';
+import { Star, ThumbsDown, ThumbsUp } from 'lucide-react';
 import { useUserStore } from '../store/useUserStore';
 
 interface PostComponentProps {
@@ -19,13 +19,21 @@ const PostComponent: React.FC<PostComponentProps> = ({ post }) => {
                 <p className="text-gray-700 dark:text-gray-300">{post.body}</p>
             </div>
             {selectedUser && (
-                <button onClick={() => toggleFavorite(post.id)} >
-                    <Star
-                        className={`ml-2 w-6 h-6 ${
-                            isFavorite ? 'text-yellow-400 fill-yellow-400' : 'text-gray-400'
-                        }`}
-                    />
-                </button>
+                <div className="flex gap-2">
+                    <button onClick={() => toggleFavorite(post.id)}>
+                        <Star
+                            className={`ml-2 w-6 h-6 cursor-pointer ${
+                                isFavorite ? 'text-yellow-400 fill-yellow-400' : 'text-gray-400'
+                            }`}
+                        />
+                    </button>
+                    <button>
+                        <ThumbsUp className={`text-gray-400`} />
+                    </button>
+                    <button>
+                        <ThumbsDown className={`text-gray-400`} />
+                    </button>
+                </div>
             )}
         </>
     );

@@ -1,13 +1,18 @@
-import { useTranslation } from "react-i18next";
-import { usePostStore } from "../store/usePostStore";
-import { useUserStore } from "../store/useUserStore";
-import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+import { usePostStore } from '../store/usePostStore';
+import { useUserStore } from '../store/useUserStore';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Favorites = () => {
     const { selectedUser } = useUserStore();
     const { posts } = usePostStore();
     const { t } = useTranslation();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        document.title = `${t('navigation.favorites')}`;
+    }, [t]);
 
     if (!selectedUser) {
         return <div className="p-6 text-center text-gray-600 dark:text-gray-300">{t('header.no_user')}</div>;

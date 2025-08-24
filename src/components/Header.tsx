@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     const { selectedUser, isSuperUserSelected } = useUserStore();
 
     return (
-        <header className="bg-gray-800 shadow-sm">
+        <header className="bg-gray-800 shadow-sm shadow-gray-900 sticky top-0 border-b border-gray-700">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex space-x-8">
@@ -30,9 +30,7 @@ const Header: React.FC = () => {
                                             : 'bg-indigo-600 text-white'
                                     }`}
                                 >
-                                    {isSuperUserSelected && (
-                                        <span>★ </span>
-                                    )}
+                                    {isSuperUserSelected && <span>★ </span>}
                                     {selectedUser.username}
                                 </span>
                             </div>
