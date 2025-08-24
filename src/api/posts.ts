@@ -10,4 +10,20 @@ export const apiPosts = {
         }
         return response.json();
     },
+
+    createPost: async (newPost: Omit<Post, 'id'>): Promise<Post> => {
+        const response = await fetch(`${API_BASE_URL}/posts`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newPost),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to create post');
+        }
+
+        return response.json();
+    },
 };

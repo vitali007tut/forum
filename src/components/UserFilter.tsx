@@ -12,7 +12,7 @@ const UserFilter: React.FC = () => {
 
     useEffect(() => {
         const { selectedUser, users } = useUserStore.getState();
-        
+
         if (selectedUser && selectedUser.id !== 0) {
             setSelectedUserIds([selectedUser.id]);
             filterByUser([selectedUser.id]);
@@ -23,22 +23,23 @@ const UserFilter: React.FC = () => {
         }
     }, [filterByUser]);
 
+    useEffect(() => {
+        if (selectedUserIds.length === 0) {
+            filterByUser([]);
+        } else if (selectedUserIds.length === users.length) {
+            filterByUser(null);
+        } else {
+            filterByUser(selectedUserIds);
+        }
+    }, [selectedUserIds, users.length, filterByUser]);
+
     const handleUserClick = (userId: number) => {
         setSelectedUserIds((prev) => {
-            let newSelected;
             if (prev.includes(userId)) {
-                newSelected = prev.filter((id) => id !== userId);
+                return prev.filter((id) => id !== userId);
             } else {
-                newSelected = [...prev, userId];
+                return [...prev, userId];
             }
-
-            if (newSelected.length === 0) {
-                filterByUser([]);
-            } else {
-                filterByUser(newSelected);
-            }
-
-            return newSelected;
         });
     };
 

@@ -18,7 +18,8 @@
         "clear_selection": "Clear Selection"
     },
     "posts": {
-        "title": "Posts List",
+        "tab": "Posts list",
+        "title": "Title",
         "filter_by_user": "Filter by user",
         "all_users": "All users",
         "create_post": "Create Post",
@@ -28,7 +29,14 @@
         "favorite": "Favorite",
         "favorites": "Favorites",
         "clear_all": "Clear all",
-        "select_all": "Select all"
+        "select_all": "Select all",
+        "select_user_to_create": "Select a user to create a post",
+        "body": "Body",
+        "cancel": "Cancel",
+        "create": "Create",
+        "creating": "Creating...",
+        "create_success": "Post created successfully!",
+        "create_error": "Failed to create post"
     },
     "post": {
         "title": "Post",

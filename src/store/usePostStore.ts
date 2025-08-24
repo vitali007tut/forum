@@ -13,6 +13,7 @@ interface PostState {
     fetchPosts: (page?: number) => Promise<void>;
     filterByUser: (userId: number[] | null) => void;
     setCurrentPage: (page: number) => void;
+    addPost: (newPost: Post) => void;
 }
 
 export const usePostStore = create<PostState>((set, get) => ({
@@ -48,11 +49,38 @@ export const usePostStore = create<PostState>((set, get) => ({
             set({ filteredPosts: posts });
         } else {
             const filtered = posts.filter((post) => userId.includes(post.userId));
-            set({ filteredPosts: filtered });
+            set({ filteredPosts: filtered, currentPage: 1 });
         }
     },
 
     setCurrentPage: (page) => {
         set({ currentPage: page });
+    },
+
+    addPost: (newPost) => {
+        const { posts, filteredPosts } = get();
+
+        const lastId = posts.length > 0 ? Math.max(...posts.map((p) => p.id)) : 0;
+        const postWithId: Post = { ...newPost, id: lastId + 1 };
+
+        const updatedPosts = [postWithId, ...posts];
+        set({ posts: updatedPosts });
+
+        if (filteredPosts.length === 0) {
+            return;
+        }
+
+        const allUsersSelected = filteredPosts.length === posts.length;
+        if (newPost.userId === 0 && !allUsersSelected) {
+            return;
+        }
+
+        if (filteredPosts.every((p) => p.userId === newPost.userId)) {
+            set({ filteredPosts: [postWithId, ...filteredPosts] });
+        }
+
+        else if (allUsersSelected) {
+            set({ filteredPosts: [postWithId, ...filteredPosts] });
+        }
     },
 }));

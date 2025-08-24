@@ -40,11 +40,11 @@ const PostsTable: React.FC<PostsTableProps> = ({
 
             {totalPages > 1 && (
                 <div className="mt-6 flex justify-center">
-                    <nav className="inline-flex rounded-md shadow">
+                    <nav className="inline-flex rounded-md items-center gap-0.5">
                         <button
                             onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                             disabled={currentPage === 1}
-                            className={`px-3 py-2 rounded-l-md border ${
+                            className={`w-10 h-10 rounded-full flex items-center justify-center border ${
                                 currentPage === 1
                                     ? 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-default'
                                     : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer'
@@ -58,7 +58,7 @@ const PostsTable: React.FC<PostsTableProps> = ({
                                 <button
                                     key={pageNum}
                                     onClick={() => setCurrentPage(pageNum)}
-                                    className={`px-3 py-2 border-t border-b ${
+                                    className={`w-8 h-8 rounded-full border flex items-center justify-center ${
                                         currentPage === pageNum
                                             ? 'bg-blue-500 text-white'
                                             : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer'
@@ -71,7 +71,7 @@ const PostsTable: React.FC<PostsTableProps> = ({
                         <button
                             onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
                             disabled={currentPage === totalPages}
-                            className={`px-3 py-2 rounded-r-md border ${
+                            className={`w-10 h-10 rounded-full border flex items-center justify-center ${
                                 currentPage === totalPages
                                     ? 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-default'
                                     : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer'

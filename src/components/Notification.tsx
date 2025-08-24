@@ -13,7 +13,7 @@ const Notification: React.FC<NotificationProps> = ({ message, type }) => {
 
     return (
         <div
-            className={`fixed bottom-30 left-5/12 ${bgColor} text-white px-4 py-2 rounded-lg shadow-lg z-50 flex items-center`}
+            className={`fixed bottom-18 left-5/12 ${bgColor} text-white px-4 py-2 rounded-lg shadow-lg z-50 flex items-center`}
         >
             <span>{message}</span>
         </div>
