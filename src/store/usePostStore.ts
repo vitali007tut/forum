@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import type { Post } from '../types/post';
 import { apiPosts } from '../api/posts';
+import { useUserStore } from './useUserStore';
 
 interface PostState {
     posts: Post[];
@@ -195,6 +196,11 @@ export const usePostStore = create<PostState>((set, get) => ({
                 posts: reorderedPosts,
                 filteredPosts: updatedFiltered,
             });
+
+            const { selectedUser, toggleFavorite } = useUserStore.getState();
+            if (selectedUser?.favoritePostIds?.includes(postId)) {
+                toggleFavorite(postId);
+            }
 
             return true;
         } catch {

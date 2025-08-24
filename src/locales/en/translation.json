@@ -2,7 +2,8 @@
     "navigation": {
         "select": "Select User",
         "posts": "Posts",
-        "profile": "Personal account"
+        "profile": "Personal account",
+        "favorites": "Favorites"
     },
     "header": {
         "logo": "Forum",
@@ -27,7 +28,6 @@
         "likes": "Likes",
         "dislikes": "Dislikes",
         "favorite": "Favorite",
-        "favorites": "Favorites",
         "clear_all": "Clear all",
         "select_all": "Select all",
         "select_user_to_create": "Select a user to create a post",
@@ -38,7 +38,8 @@
         "create_success": "Post created successfully!",
         "create_error": "Failed to create post",
         "delete_success": "Post deleted successfully!",
-        "delete_error": "Failed to delete post"
+        "delete_error": "Failed to delete post",
+        "no_favorites": "Здесь нет избранных постов"
     },
     "post": {
         "title": "Post",
@@ -76,8 +77,6 @@
     }
     },
     "admin": {
-        "admin_panel": "Admin Panel",
-        "user_management": "User Management",
-        "set_priority": "Set Priority"
+        "user_management": "User Management"
     }
 }

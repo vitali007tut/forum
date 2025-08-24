@@ -18,6 +18,10 @@ const Post: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
+        document.title = `${t('post.title')}`;
+    }, [t]);
+
+    useEffect(() => {
         if (!id) return;
 
         const postId = parseInt(id, 10);
