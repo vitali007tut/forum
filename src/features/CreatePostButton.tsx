@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useUserStore } from '../store/useUserStore';
+import { useUserStore } from '../shared/model/useUserStore';
 import { useTranslation } from 'react-i18next';
 import CreatePost from './CreatePost';
 

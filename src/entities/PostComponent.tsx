@@ -1,7 +1,7 @@
 import React from 'react';
-import type { Post } from '../types/post';
+import type { Post } from '../shared/types/post';
 import { Star, ThumbsDown, ThumbsUp } from 'lucide-react';
-import { useUserStore } from '../store/useUserStore';
+import { useUserStore } from '../shared/model/useUserStore';
 
 interface PostComponentProps {
     post: Post;

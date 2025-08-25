@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Navigation from './Navigation';
-import { useUserStore } from '../store/useUserStore';
+import Navigation from '../entities/Navigation';
+import { useUserStore } from '../shared/model/useUserStore';
 
 const Header: React.FC = () => {
     const { t } = useTranslation();

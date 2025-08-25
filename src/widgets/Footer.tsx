@@ -1,8 +1,8 @@
 import React from 'react';
-import LanguageSwitcher from './LanguageSwitcher';
+import LanguageSwitcher from '../features/LanguageSwitcher';
 import { Link } from 'react-router-dom';
 import { Github } from 'lucide-react';
-import { useUserStore } from '../store/useUserStore';
+import { useUserStore } from '../shared/model/useUserStore';
 
 const Footer: React.FC = () => {
     const { selectedUser } = useUserStore();

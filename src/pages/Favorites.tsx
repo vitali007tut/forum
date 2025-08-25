@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { usePostStore } from '../store/usePostStore';
-import { useUserStore } from '../store/useUserStore';
+import { usePostStore } from '../shared/model/usePostStore';
+import { useUserStore } from '../shared/model/useUserStore';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 

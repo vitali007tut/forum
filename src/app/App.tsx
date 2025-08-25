@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import { useUserStore } from './store/useUserStore';
+import Header from '../widgets/Header';
+import Footer from '../widgets/Footer';
+import { useUserStore } from '../shared/model/useUserStore';
 import { useEffect } from 'react';
-import { usePostStore } from './store/usePostStore';
+import { usePostStore } from '../shared/model/usePostStore';
 
 const App: React.FC = () => {
     const { fetchUsers } = useUserStore();

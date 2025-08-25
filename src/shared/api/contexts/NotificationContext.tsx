@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react';
-import Notification from '../components/Notification';
+import Notification from '../../../widgets/Notification';
 
-type NotificationType = 'success' | 'error' ;
+type NotificationType = 'success' | 'error';
 
 interface NotificationContextType {
     showNotification: (message: string, type: NotificationType) => void;
@@ -26,12 +26,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
     return (
         <NotificationContext.Provider value={{ showNotification }}>
             {children}
-            {notification && (
-                <Notification
-                    message={notification.message}
-                    type={notification.type}
-                />
-            )}
+            {notification && <Notification message={notification.message} type={notification.type} />}
         </NotificationContext.Provider>
     );
 };

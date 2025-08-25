@@ -3,7 +3,7 @@ import Home from '../pages/Users';
 import Posts from '../pages/Posts';
 import Profile from '../pages/Profile';
 import { ProfileAdmin } from '../pages/ProfileAdmin';
-import App from '../App';
+import App from './App';
 import Post from '../pages/Post';
 import Favorites from '../pages/Favorites';
 import NotFound from '../pages/NotFound';

@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { useUserStore } from '../store/useUserStore';
-import { usePostStore } from '../store/usePostStore';
-import { apiPosts } from '../api/posts';
+import { useUserStore } from '../shared/model/useUserStore';
+import { usePostStore } from '../shared/model/usePostStore';
+import { apiPosts } from '../shared/api/posts';
 import { useTranslation } from 'react-i18next';
-import { useNotification } from '../hooks/useNotification';
+import { useNotification } from '../shared/api/hooks/useNotification';
 
 interface CreatePostProps {
     isOpen: boolean;
@@ -49,7 +49,7 @@ const CreatePost = ({ isOpen, onClose }: CreatePostProps) => {
                 title,
                 body,
                 userId: selectedUser.id,
-                order: 0
+                order: 0,
             });
 
             addPost({ ...response });

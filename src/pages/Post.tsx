@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { apiPosts } from '../api/posts';
-import type { Post as PostType } from '../types/post';
-import type { Comment } from '../types/post';
+import { apiPosts } from '../shared/api/posts';
+import type { Post as PostType } from '../shared/types/post';
+import type { Comment } from '../shared/types/post';
 import { useTranslation } from 'react-i18next';
-import Comments from '../components/Comments';
-import PostComponent from '../components/PostComponent';
+import Comments from '../entities/Comments';
+import PostComponent from '../entities/PostComponent';
 
 const Post: React.FC = () => {
     const { id } = useParams<{ id: string }>();

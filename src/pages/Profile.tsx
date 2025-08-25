@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNotification } from '../hooks/useNotification';
+import { useNotification } from '../shared/api/hooks/useNotification';
 import { useTranslation } from 'react-i18next';
-import type { User } from '../types/user';
-import { useUserStore } from '../store/useUserStore';
+import type { User } from '../shared/types/user';
+import { useUserStore } from '../shared/model/useUserStore';
 import { Link, useParams } from 'react-router-dom';
 
 const Profile: React.FC = () => {

@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { usePostStore } from '../store/usePostStore';
-import PostsTable from '../components/PostsTable';
+import { usePostStore } from '../shared/model/usePostStore';
+import PostsTable from '../entities/PostsTable';
 import { useTranslation } from 'react-i18next';
-import UserFilter from '../components/UserFilter';
-import CreatePostButton from '../components/CreatePostButton';
+import UserFilter from '../features/UserFilter';
+import CreatePostButton from '../features/CreatePostButton';
 
 const Posts = () => {
     const { loading, error, currentPage, postsPerPage, setCurrentPage } = usePostStore();

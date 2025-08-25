@@ -73,17 +73,17 @@ export const useUserStore = create<UserState>((set, get) => ({
         set({
             selectedUser: fromStore
                 ? {
-                    ...fromStore,
-                    favoritePostIds: fromStore.favoritePostIds ?? [],
-                    likePostIds: fromStore.likePostIds ?? [],
-                    dislikePostIds: fromStore.dislikePostIds ?? [],
-                }
+                      ...fromStore,
+                      favoritePostIds: fromStore.favoritePostIds ?? [],
+                      likePostIds: fromStore.likePostIds ?? [],
+                      dislikePostIds: fromStore.dislikePostIds ?? [],
+                  }
                 : {
-                    ...user,
-                    favoritePostIds: user.favoritePostIds ?? [],
-                    likePostIds: user.likePostIds ?? [],
-                    dislikePostIds: user.dislikePostIds ?? [],
-                },
+                      ...user,
+                      favoritePostIds: user.favoritePostIds ?? [],
+                      likePostIds: user.likePostIds ?? [],
+                      dislikePostIds: user.dislikePostIds ?? [],
+                  },
             isSuperUserSelected: false,
         });
     },

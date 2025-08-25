@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useUserStore } from '../store/useUserStore';
+import { useUserStore } from '../shared/model/useUserStore';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 

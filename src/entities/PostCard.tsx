@@ -1,8 +1,8 @@
-import { usePostStore } from '../store/usePostStore';
-import { useUserStore } from '../store/useUserStore';
-import { useNotification } from '../hooks/useNotification';
+import { usePostStore } from '../shared/model/usePostStore';
+import { useUserStore } from '../shared/model/useUserStore';
+import { useNotification } from '../shared/api/hooks/useNotification';
 import { useTranslation } from 'react-i18next';
-import type { Post } from '../types/post';
+import type { Post } from '../shared/types/post';
 import { useNavigate } from 'react-router-dom';
 import { Trash2 } from 'lucide-react';
 
@@ -85,9 +85,7 @@ const PostCard = ({ post }: { post: Post }) => {
             </h3>
 
             {canDelete && (
-                <button
-                    onClick={handleDelete}
-                >
+                <button onClick={handleDelete}>
                     <Trash2 className="w-6 h-6 text-gray-400 hover:text-red-500" />
                 </button>
             )}

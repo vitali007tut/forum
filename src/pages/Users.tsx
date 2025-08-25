@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useUserStore } from '../store/useUserStore';
+import { useUserStore } from '../shared/model/useUserStore';
 
 const Users: React.FC = () => {
     const {

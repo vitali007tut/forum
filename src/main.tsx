@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import './locales/i18n';
+import './shared/index.css';
+import './shared/i18n/i18n';
 import { BrowserRouter } from 'react-router';
-import { NotificationProvider } from './contexts/NotificationContext';
-import AppRoutes from './components/AppRoutes';
+import { NotificationProvider } from './shared/api/contexts/NotificationContext';
+import AppRoutes from './app/AppRoutes';
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import type { Comment } from '../types/post';
+import type { Comment } from '../shared/types/post';
 import { useTranslation } from 'react-i18next';
-import { useUserStore } from '../store/useUserStore';
+import { useUserStore } from '../shared/model/useUserStore';
 
 interface CommentsProps {
     comments: Comment[];

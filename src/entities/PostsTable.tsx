@@ -1,6 +1,6 @@
 import React from 'react';
 import PostCard from './PostCard';
-import type { Post } from '../types/post';
+import type { Post } from '../shared/types/post';
 
 interface PostsTableProps {
     posts: Post[];

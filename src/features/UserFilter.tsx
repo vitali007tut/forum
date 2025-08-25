@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useUserStore } from '../store/useUserStore';
-import { usePostStore } from '../store/usePostStore';
+import { useUserStore } from '../shared/model/useUserStore';
+import { usePostStore } from '../shared/model/usePostStore';
 import { useTranslation } from 'react-i18next';
 
 const UserFilter: React.FC = () => {
