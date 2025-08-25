@@ -21,4 +21,6 @@ export type User = {
         bs: string;
     };
     favoritePostIds?: number[];
+    likePostIds?: number[];
+    dislikePostIds?: number[];
 };

@@ -8,9 +8,11 @@ interface PostComponentProps {
 }
 
 const PostComponent: React.FC<PostComponentProps> = ({ post }) => {
-    const { selectedUser, toggleFavorite } = useUserStore();
+    const { selectedUser, toggleFavorite, toggleLike, toggleDislike } = useUserStore();
 
     const isFavorite = selectedUser?.favoritePostIds?.includes(post.id);
+    const isLiked = selectedUser?.likePostIds?.includes(post.id);
+    const isDisliked = selectedUser?.dislikePostIds?.includes(post.id);
 
     return (
         <>
@@ -27,11 +29,19 @@ const PostComponent: React.FC<PostComponentProps> = ({ post }) => {
                             }`}
                         />
                     </button>
-                    <button>
-                        <ThumbsUp className={`text-gray-400`} />
+                    <button onClick={() => toggleLike(post.id)}>
+                        <ThumbsUp
+                            className={`w-6 h-6 cursor-pointer ${
+                                isLiked ? 'text-green-500' : 'text-gray-400'
+                            }`}
+                        />
                     </button>
-                    <button>
-                        <ThumbsDown className={`text-gray-400`} />
+                    <button onClick={() => toggleDislike(post.id)}>
+                        <ThumbsDown
+                            className={`w-6 h-6 cursor-pointer ${
+                                isDisliked ? 'text-red-500' : 'text-gray-400'
+                            }`}
+                        />
                     </button>
                 </div>
             )}
