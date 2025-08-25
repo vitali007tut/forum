@@ -6,6 +6,7 @@ import { ProfileAdmin } from '../pages/ProfileAdmin';
 import App from '../App';
 import Post from '../pages/Post';
 import Favorites from '../pages/Favorites';
+import NotFound from '../pages/NotFound';
 
 const AppRoutes = () => {
     return (
@@ -19,6 +20,7 @@ const AppRoutes = () => {
                     <Route path=":id" element={<Profile />} />
                 </Route>
                 <Route path="favorites" element={<Favorites />}></Route>
+                <Route path="*" element={<NotFound />}></Route>
             </Route>
         </Routes>
     );
