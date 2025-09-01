@@ -42,25 +42,25 @@ const Users: React.FC = () => {
     };
 
     return (
-        <div className="border border-gray-700 rounded-lg p-8 bg-gray-800">
+        <div className="border bg-card border-border rounded-lg p-8 ">
             <div className="mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div
                         onClick={selectSuperUser}
                         className={`p-4 rounded-lg border cursor-pointer transition-all duration-200 ${
                             isSuperUserSelected
-                                ? 'border-yellow-500 bg-yellow-900/20 shadow-lg shadow-yellow-500/20'
-                                : 'border-gray-600 bg-gray-700/30 hover:border-yellow-400 hover:bg-gray-700/50'
+                                ? 'border-chart-1 bg-chart-1/10 shadow-lg shadow-chart-1/20'
+                                : 'border-border bg-secondary/30 hover:border-chart-1/80 hover:bg-secondary/50'
                         }`}
                     >
                         <div className="flex items-center gap-3">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center">
-                                <span className="text-yellow-400 font-bold text-lg">★</span>
+                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-chart-1/20 flex items-center justify-center">
+                                <span className="text-chart-1 font-bold text-lg">★</span>
                             </div>
                             <div className="ml-4">
-                                <h3 className="font-bold text-white">{t('users.super_admin')}</h3>
-                                <p className="text-yellow-400 text-sm">admin</p>
-                                <p className="text-gray-400 text-sm mt-1">{t('users.full_access')}</p>
+                                <h3 className="font-bold text-primary">{t('users.super_admin')}</h3>
+                                <p className="text-primary/80 text-sm">admin</p>
+                                <p className="text-primary/50 text-sm mt-1">{t('users.full_access')}</p>
                             </div>
                         </div>
                     </div>
@@ -75,19 +75,19 @@ const Users: React.FC = () => {
                             onClick={() => selectUser(user)}
                             className={`p-4 rounded-lg border cursor-pointer transition-all duration-200 ${
                                 isUserSelected(user.id)
-                                    ? 'border-indigo-500 bg-indigo-900/20 shadow-lg'
-                                    : 'border-gray-600 bg-gray-700/30 hover:border-indigo-400 hover:bg-gray-700/50'
+                                    ? 'border-chart-2 bg-chart-2/20 shadow-lg'
+                                    : 'border-border bg-secondary/30 hover:border-chart-2/50 hover:bg-secondary/20'
                             }`}
                         >
-                            <h3 className="font-semibold text-white">{user.name}</h3>
-                            <p className="text-gray-300 text-sm">{user.username}</p>
-                            <p className="text-gray-400 text-sm mt-1">{user.email}</p>
+                            <h3 className="font-semibold text-primary">{user.name}</h3>
+                            <p className="text-primary/80 text-sm">{user.username}</p>
+                            <p className="text-primary/50 text-sm mt-1">{user.email}</p>
                         </div>
                     ))}
                     {selectedUser && (
                         <button
                             onClick={clearSelection}
-                            className="p-4 rounded-lg border border-red-500 bg-red-900/20 hover:bg-red-900/30 cursor-pointer transition-all duration-200 text-red-400 font-medium"
+                            className="p-4 rounded-lg border border-destructive bg-destructive/20 hover:bg-destructive/30 cursor-pointer transition-all duration-200 text-destructive font-medium"
                         >
                             {t('users.clear_selection')}
                         </button>

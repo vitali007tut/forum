@@ -6,6 +6,7 @@ import type { Comment } from '../shared/types/post';
 import { useTranslation } from 'react-i18next';
 import Comments from '../entities/Comments';
 import PostComponent from '../entities/PostComponent';
+import { Button } from '@/shared/shadcn/button';
 
 const Post: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -52,15 +53,15 @@ const Post: React.FC = () => {
     if (!post) return <div className="text-gray-400">{t('post.not_found')}</div>;
 
     return (
-        <div className="border border-gray-700 rounded-lg p-8 bg-gray-800">
+        <div className="border bg-card border-border rounded-lg p-8">
             <div className="flex items-center justify-between mb-4">
-                <h1 className="text-xl font-bold text-white ml-2">{t('post.title')}:</h1>
-                <button
+                <h1 className="text-xl font-bold text-foreground ml-2">{t('post.title')}:</h1>
+                <Button
                     onClick={() => navigate(-1)}
-                    className="px-3 py-1 text-sm bg-gray-600 text-white rounded hover:bg-gray-500 cursor-pointer"
+                    variant="outline"
                 >
                     {t('post.back')}
-                </button>
+                </Button>
             </div>
 
             <PostComponent post={post} />

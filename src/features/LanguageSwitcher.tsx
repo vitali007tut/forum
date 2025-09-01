@@ -1,3 +1,4 @@
+import { Button } from '@/shared/shadcn/button';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -10,26 +11,20 @@ const LanguageSwitcher: React.FC = () => {
 
     return (
         <div className="flex space-x-2">
-            <button
+            <Button
                 onClick={() => changeLanguage('en')}
-                className={`px-3 py-1 rounded text-sm font-medium ${
-                    i18n.language.startsWith('en')
-                        ? 'bg-blue-500 text-white cursor-default'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer'
-                }`}
+                variant={`${i18n.language.startsWith('ru') ? 'outline' : 'default'}`}
+                size="icon"
             >
                 EN
-            </button>
-            <button
+            </Button>
+            <Button
                 onClick={() => changeLanguage('ru')}
-                className={`px-3 py-1 rounded text-sm font-medium ${
-                    i18n.language.startsWith('ru')
-                        ? 'bg-blue-500 text-white cursor-default'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer'
-                }`}
+                size="icon"
+                variant={`${i18n.language.startsWith('ru') ? 'default' : 'outline'}`}
             >
                 RU
-            </button>
+            </Button>
         </div>
     );
 };

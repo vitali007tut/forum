@@ -15,7 +15,7 @@ const App: React.FC = () => {
     }, [fetchUsers, fetchPosts]);
 
     return (
-        <div className="min-h-screen bg-gray-900 flex flex-col">
+        <div className="min-h-screen bg-accent flex flex-col">
             <Header />
             <main className="flex-grow">
                 <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">

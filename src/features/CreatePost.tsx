@@ -71,16 +71,16 @@ const CreatePost = ({ isOpen, onClose }: CreatePostProps) => {
         <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-[3px]">
             <div
                 ref={modalRef}
-                className="bg-white dark:bg-gray-800 rounded-lg p-6 w-full max-w-md shadow-gray-800 shadow-md relative border border-gray-700"
+                className="bg-card rounded-lg p-6 w-full max-w-md shadow-background/50 shadow-md relative border border-border"
             >
                 <button
                     onClick={onClose}
-                    className="absolute top-3 right-3 text-gray-500 hover:text-gray-300 cursor-pointer"
+                    className="absolute top-3 right-3 text-foreground/80 hover:text-foreground cursor-pointer"
                 >
                     ✕
                 </button>
 
-                <h2 className="text-xl font-semibold mb-4 text-center text-white">
+                <h2 className="text-xl font-semibold mb-4 text-center text-foreground">
                     {t('posts.create_post')}
                 </h2>
 
@@ -90,7 +90,7 @@ const CreatePost = ({ isOpen, onClose }: CreatePostProps) => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
-                    className="w-full border rounded px-3 py-2 mb-3 dark:bg-gray-700 dark:text-white"
+                    className="w-full border rounded px-3 py-2 mb-3 bg-input text-foreground"
                 />
 
                 <textarea
@@ -98,7 +98,7 @@ const CreatePost = ({ isOpen, onClose }: CreatePostProps) => {
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
                     required
-                    className="w-full border rounded px-3 py-2 mb-3 dark:bg-gray-700 dark:text-white"
+                    className="w-full border rounded px-3 py-2 mb-3 bg-input text-foreground"
                 />
 
                 <div className="flex justify-center mt-4">

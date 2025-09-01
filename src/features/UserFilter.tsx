@@ -66,16 +66,16 @@ const UserFilter: React.FC = () => {
     const isNoneSelected = selectedUserIds.length === 0;
 
     return (
-        <div className="mb-6 px-4 py-2 border border-gray-600 rounded-lg bg-gray-900">
+        <div className="mb-6 px-4 py-2 border border-border rounded-lg bg-background">
             <div className="flex flex-wrap gap-2 mb-3">
-                <span className="text-gray-300">{t('posts.filter_by_user')}</span>
+                <span className="text-foreground">{t('posts.filter_by_user')}</span>
                 <button
                     onClick={handleSelectAll}
                     disabled={isAllSelected}
                     className={`px-3 py-1 text-xs rounded transition-colors border ${
                         isAllSelected
                             ? 'bg-gray-500 text-gray-300 cursor-default border-gray-500'
-                            : 'bg-gray-600 hover:bg-gray-700 text-white cursor-pointer border-gray-600'
+                            : 'bg-muted-foreground hover:bg-primary/50 text-primary-foreground border-border cursor-pointer'
                     }`}
                 >
                     {t('posts.select_all')}
@@ -86,7 +86,7 @@ const UserFilter: React.FC = () => {
                     className={`px-3 py-1 text-xs rounded transition-colors border ${
                         isNoneSelected
                             ? 'bg-gray-500 text-gray-300 cursor-default border-gray-500'
-                            : 'bg-gray-600 hover:bg-gray-700 text-white cursor-pointer border-gray-600'
+                            : 'bg-muted-foreground hover:bg-primary/50 text-primary-foreground border-border cursor-pointer'
                     }`}
                 >
                     {t('posts.clear_all')}
@@ -98,10 +98,10 @@ const UserFilter: React.FC = () => {
                     <button
                         key={user.id}
                         onClick={() => handleUserClick(user.id)}
-                        className={`px-2 py-1 rounded-2xl border cursor-pointer transition-all duration-200 text-white ${
+                        className={`px-2 py-1 rounded-2xl border cursor-pointer transition-all duration-200 text-foreground ${
                             selectedUserIds.includes(user.id)
-                                ? 'border-indigo-500 bg-indigo-900/20 shadow-lg'
-                                : 'border-gray-600 bg-gray-700/30 hover:border-indigo-400 hover:bg-gray-700/50'
+                                ? 'border-chart-2 bg-chart-2/20 shadow-lg'
+                                : 'border-border bg-background/30 hover:border-chart-2/50 hover:bg-background/50'
                         }`}
                     >
                         {user.username}

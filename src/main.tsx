@@ -5,12 +5,15 @@ import './shared/i18n/i18n';
 import { BrowserRouter } from 'react-router';
 import { NotificationProvider } from './shared/api/contexts/NotificationContext';
 import AppRoutes from './app/AppRoutes';
+import { ThemeProvider } from './shared/api/contexts/theme-provider';
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <NotificationProvider>
             <BrowserRouter basename="/forum/">
-                <AppRoutes />
+                <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+                    <AppRoutes />
+                </ThemeProvider>
             </BrowserRouter>
         </NotificationProvider>
     </StrictMode>

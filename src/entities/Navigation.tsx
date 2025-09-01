@@ -15,7 +15,7 @@ const Navigation: React.FC = () => {
                 to="/"
                 className={({ isActive }) =>
                     `navLink ${isActive ? 'activeLink' : 'inactiveLink'} ${
-                        isSuperUserSelected ? 'border-yellow-600' : 'border-indigo-500'
+                        isSuperUserSelected ? 'border-chart-1' : 'border-chart-2'
                     }`
                 }
             >
@@ -25,7 +25,7 @@ const Navigation: React.FC = () => {
                 to="/posts"
                 className={({ isActive }) =>
                     `navLink ${isActive ? 'activeLink' : 'inactiveLink'} ${
-                        isSuperUserSelected ? 'border-yellow-600' : 'border-indigo-500'
+                        isSuperUserSelected ? 'border-chart-1' : 'border-chart-2'
                     }`
                 }
             >
@@ -37,7 +37,7 @@ const Navigation: React.FC = () => {
                         to={isSuperUserSelected ? '/profile' : `/profile/${selectedUser.id}`}
                         className={({ isActive }) =>
                             `navLink ${isActive ? 'activeLink' : 'inactiveLink'} ${
-                                isSuperUserSelected ? 'border-yellow-600' : 'border-indigo-500'
+                                isSuperUserSelected ? 'border-chart-1' : 'border-chart-2'
                             }`
                         }
                     >
@@ -48,12 +48,12 @@ const Navigation: React.FC = () => {
                             to="/favorites"
                             className={({ isActive }) =>
                                 `navLink ${isActive ? 'activeLink' : 'inactiveLink'} relative ${
-                                    isSuperUserSelected ? 'border-yellow-600' : 'border-indigo-500'
+                                    isSuperUserSelected ? 'border-chart-1' : 'border-chart-2'
                                 }`
                             }
                         >
                             {t('navigation.favorites')}
-                            <span className="ml-1 px-2 py-0.5 h-5 w-5 text-xs bg-blue-500 text-white rounded-full flex justify-center">
+                            <span className="ml-1 h-5 w-5 text-xs bg-primary-foreground text-primary border border-border rounded-full flex justify-center">
                                 {favoriteCount}
                             </span>
                         </NavLink>

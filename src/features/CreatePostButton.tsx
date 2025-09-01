@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useUserStore } from '../shared/model/useUserStore';
 import { useTranslation } from 'react-i18next';
 import CreatePost from './CreatePost';
+import { Button } from '@/shared/shadcn/button';
 
 const CreatePostButton = () => {
     const { selectedUser } = useUserStore();
@@ -10,17 +11,14 @@ const CreatePostButton = () => {
 
     return (
         <>
-            <button
+            <Button
                 onClick={() => setIsCreateModalOpen(true)}
                 disabled={!selectedUser}
-                className={`px-4 py-2 text-sm font-medium rounded-md ${
-                    selectedUser
-                        ? 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer'
-                        : 'bg-gray-500 text-gray-300 cursor-default'
-                }`}
+                variant='outline'
+                className={`px-4 py-2 text-sm font-medium rounded-md`}
             >
                 {selectedUser ? t('posts.create_post') : t('posts.select_user_to_create')}
-            </button>
+            </Button>
 
             <CreatePost isOpen={isCreateModalOpen} onClose={() => setIsCreateModalOpen(false)} />
         </>

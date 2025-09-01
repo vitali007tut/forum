@@ -47,7 +47,7 @@ const PostsTable: React.FC<PostsTableProps> = ({
                             className={`w-10 h-10 rounded-full flex items-center justify-center border ${
                                 currentPage === 1
                                     ? 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-default'
-                                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer'
+                                    : 'bg-background text-foreground hover:bg-background/50 cursor-pointer'
                             }`}
                         >
                             <span>&#128896;</span>
@@ -60,8 +60,8 @@ const PostsTable: React.FC<PostsTableProps> = ({
                                     onClick={() => setCurrentPage(pageNum)}
                                     className={`w-8 h-8 rounded-full border flex items-center justify-center ${
                                         currentPage === pageNum
-                                            ? 'bg-blue-500 text-white'
-                                            : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer'
+                                            ? 'bg-secondary text-secondary-foreground border-foreground'
+                                            : 'bg-background text-foreground hover:bg-background/50 cursor-pointer'
                                     }`}
                                 >
                                     {pageNum}
@@ -74,7 +74,7 @@ const PostsTable: React.FC<PostsTableProps> = ({
                             className={`w-10 h-10 rounded-full border flex items-center justify-center ${
                                 currentPage === totalPages
                                     ? 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-default'
-                                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer'
+                                    : 'bg-background text-foreground hover:bg-background/50 cursor-pointer'
                             }`}
                         >
                             <span>&#128898;</span>

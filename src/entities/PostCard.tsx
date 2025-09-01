@@ -46,7 +46,7 @@ const PostCard = ({ post }: { post: Post }) => {
     return (
         <div
             onClick={() => navigate(`/post/${post.id}`)}
-            className="flex items-center justify-between border rounded-lg px-2 py-1 shadow-sm hover:shadow-md transition-shadow bg-white dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 cursor-pointer"
+            className="flex items-center justify-between border rounded-lg px-2 py-1 shadow-sm hover:shadow-md transition-shadow bg-background border-border hover:bg-background/50 cursor-pointer"
         >
             {isSuperUserSelected && (
                 <div className="flex space-x-2 mr-3">

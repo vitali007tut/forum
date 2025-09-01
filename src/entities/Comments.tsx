@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Comment } from '../shared/types/post';
 import { useTranslation } from 'react-i18next';
 import { useUserStore } from '../shared/model/useUserStore';
+import { Button } from '@/shared/shadcn/button';
 
 interface CommentsProps {
     comments: Comment[];
@@ -44,21 +45,22 @@ const Comments: React.FC<CommentsProps> = ({ comments, setComments }) => {
                         placeholder={t('post.comment_name') || 'Name'}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full rounded-md border border-gray-300 dark:border-gray-600 px-3 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                        className="w-full rounded-md border border-border px-3 py-2 text-sm bg-input dark:bg-gray-800 text-gray-900 dark:text-white"
                     />
                     <textarea
                         placeholder={t('post.comment_body') || 'Comment'}
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
-                        className="w-full rounded-md border border-gray-300 dark:border-gray-600 px-3 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                        className="w-full rounded-md border border-border px-3 py-2 text-sm bg-input dark:bg-gray-800 text-gray-900 dark:text-white"
                     />
-                    <button
+                    <Button
                         onClick={handleAddComment}
                         disabled={!name.trim() || !body.trim()}
-                        className="px-4 py-2 text-sm rounded bg-blue-500 text-white hover:bg-blue-600 disabled:opacity-50 cursor-pointer disabled:cursor-default"
+                        variant="outline"
+                        className="cursor-pointer disabled:cursor-default"
                     >
                         {t('post.add_comment')}
-                    </button>
+                    </Button>
                 </div>
             ) : (
                 <p className="text-gray-500 dark:text-gray-400 mb-4">
@@ -70,7 +72,7 @@ const Comments: React.FC<CommentsProps> = ({ comments, setComments }) => {
                 <p className="text-gray-500 dark:text-gray-400">{t('post.no_comments')}</p>
             )}
 
-            <div className="space-y-4 border rounded-lg p-3 bg-gray-100 dark:bg-gray-900 dark:border-gray-600">
+            <div className="space-y-4 border rounded-lg p-3 bg-background border-border">
                 {comments.map((comment) => (
                     <div key={comment.id}>
                         <p className="text-gray-900 dark:text-white font-medium">{comment.name}</p>

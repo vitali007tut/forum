@@ -16,7 +16,7 @@ const PostComponent: React.FC<PostComponentProps> = ({ post }) => {
 
     return (
         <>
-            <div className="border rounded-lg p-4 mb-6 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700">
+            <div className="border rounded-lg p-4 mb-6 shadow-md bg-background border-border">
                 <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{post.title}</h2>
                 <p className="text-gray-700 dark:text-gray-300">{post.body}</p>
             </div>

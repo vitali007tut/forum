@@ -18,7 +18,7 @@ const Posts = () => {
     const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
     return (
-        <div className="border border-gray-700 rounded-lg p-8 bg-gray-800">
+        <div className="border bg-card border-border rounded-lg p-8">
             <div className="mb-4">
                 <CreatePostButton />
             </div>
