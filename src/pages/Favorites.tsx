@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { usePostStore } from '../shared/model/usePostStore';
 import { useUserStore } from '../shared/model/useUserStore';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@tanstack/react-router';
 import { useEffect } from 'react';
 
 const Favorites = () => {
@@ -29,7 +29,7 @@ const Favorites = () => {
             {favoritePosts.map((post) => (
                 <li
                     key={post.id}
-                    onClick={() => navigate(`/post/${post.id}`)}
+                    onClick={() => navigate({ from: '/post/$id', params: { id: String(post.id) } })}
                     className="text-center text-xl font-semibold mb-2 ml-1.5 text-card-foreground cursor-pointer hover:underline"
                 >
                     {post.title}

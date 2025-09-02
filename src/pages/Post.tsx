@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import { apiPosts } from '../shared/api/posts';
 import type { Post as PostType } from '../shared/types/post';
 import type { Comment } from '../shared/types/post';
@@ -7,10 +6,12 @@ import { useTranslation } from 'react-i18next';
 import Comments from '../entities/Comments';
 import PostComponent from '../entities/PostComponent';
 import { Button } from '@/shared/shadcn/button';
+import { useParams, useRouter, useCanGoBack } from '@tanstack/react-router';
 
 const Post: React.FC = () => {
-    const { id } = useParams<{ id: string }>();
-    const navigate = useNavigate();
+    const { id } = useParams({ from: '/post/$id' });
+    const router = useRouter();
+    const canGoBack = useCanGoBack();
     const { t } = useTranslation();
 
     const [post, setPost] = useState<PostType | null>(null);
@@ -56,12 +57,11 @@ const Post: React.FC = () => {
         <div className="border bg-card border-border rounded-lg p-8">
             <div className="flex items-center justify-between mb-4">
                 <h1 className="text-xl font-bold text-foreground ml-2">{t('post.title')}:</h1>
-                <Button
-                    onClick={() => navigate(-1)}
-                    variant="outline"
-                >
-                    {t('post.back')}
-                </Button>
+                {canGoBack ? (
+                    <Button onClick={() => router.history.back()} variant="outline">
+                        {t('post.back')}
+                    </Button>
+                ) : null}
             </div>
 
             <PostComponent post={post} />

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useUserStore } from '../shared/model/useUserStore';
-import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Link, useNavigate } from '@tanstack/react-router';
 
 export const ProfileAdmin = () => {
     const { users, isSuperUserSelected } = useUserStore();
@@ -12,7 +12,7 @@ export const ProfileAdmin = () => {
         document.title = `${t('profile.user_management')}`;
     }, [t]);
 
-    if (!isSuperUserSelected) navigate('/');
+    if (!isSuperUserSelected) navigate({from: '/'});
 
     return (
         <div className="border border-border rounded-lg p-8 bg-card">
@@ -21,8 +21,9 @@ export const ProfileAdmin = () => {
                 {users.map((user) => (
                     <Link
                         key={user.id}
-                        to={`${user.id}`}
+                        to="/profile/$id"
                         className="p-4 rounded-lg border border-border bg-secondary hover:border-chart-2 hover:bg-secondary/50 cursor-pointer transition-all duration-200"
+                        params={{ id: String(user.id) }}
                     >
                         <h3 className="font-semibold text-card-foreground">{user.username}</h3>
                         <p className="text-card-foreground/50 text-sm">{user.name}</p>

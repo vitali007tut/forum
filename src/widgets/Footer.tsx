@@ -1,6 +1,5 @@
 import React from 'react';
 import LanguageSwitcher from '../features/LanguageSwitcher';
-import { Link } from 'react-router-dom';
 import { Github } from 'lucide-react';
 import { useUserStore } from '../shared/model/useUserStore';
 import { ModeToggle } from '@/shared/ui/mode-toggle';
@@ -21,9 +20,9 @@ const Footer: React.FC = () => {
             <div className="max-w-7xl mx-auto p-4">
                 <div className="flex justify-between items-center">
                     <div className="text-sm text-gray-400">© Forum App</div>
-                    <Link to={'https://github.com/vitali007tut/forum'}>
+                    <a href={'https://github.com/vitali007tut/forum'}>
                         <Github className={githubClass} />
-                    </Link>
+                    </a>
                     <div className="flex items-center space-x-4">
                         <ModeToggle />
                         <LanguageSwitcher />

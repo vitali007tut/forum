@@ -3,7 +3,7 @@ import { useUserStore } from '../shared/model/useUserStore';
 import { useNotification } from '../shared/api/hooks/useNotification';
 import { useTranslation } from 'react-i18next';
 import type { Post } from '../shared/types/post';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@tanstack/react-router';
 import { Trash2 } from 'lucide-react';
 
 const PostCard = ({ post }: { post: Post }) => {
@@ -45,7 +45,7 @@ const PostCard = ({ post }: { post: Post }) => {
 
     return (
         <div
-            onClick={() => navigate(`/post/${post.id}`)}
+            onClick={() => navigate({ from: '/post/$id', params: { id: String(post.id) }  })}
             className="flex items-center justify-between border rounded-lg px-2 py-1 shadow-sm hover:shadow-md transition-shadow bg-background border-border hover:bg-background/50 cursor-pointer"
         >
             {isSuperUserSelected && (
@@ -79,7 +79,8 @@ const PostCard = ({ post }: { post: Post }) => {
 
             <h3 className="flex-1 text-lg font-semibold text-gray-900 dark:text-white line-clamp-1">
                 <span className="text-sm text-gray-500 dark:text-gray-400">
-                    id: {post.id} | order: {post.order} | {users.find((x) => x.id === post.userId)?.username}{' '}
+                    id: {post.id} | order: {post.order} |{' '}
+                    {users.find((x) => x.id === post.userId)?.username}{' '}
                 </span>
                 {post.title}
             </h3>

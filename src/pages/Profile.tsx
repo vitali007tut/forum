@@ -3,12 +3,12 @@ import { useNotification } from '../shared/api/hooks/useNotification';
 import { useTranslation } from 'react-i18next';
 import type { User } from '../shared/types/user';
 import { useUserStore } from '../shared/model/useUserStore';
-import { Link, useParams } from 'react-router-dom';
 import { Button } from '@/shared/shadcn/button';
+import { Link, useParams } from '@tanstack/react-router';
 
 const Profile: React.FC = () => {
     const { selectedUser, users, isSuperUserSelected, updateUser } = useUserStore();
-    const { id } = useParams();
+    const { id } = useParams({ from: '/profile/$id' });
 
     const { showNotification } = useNotification();
     const { t } = useTranslation();
@@ -95,7 +95,7 @@ const Profile: React.FC = () => {
         };
 
         return (
-            <div className="border bg-card border-border rounded-lg p-8 ">
+            <div className="border bg-card border-border rounded-lg p-8">
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-bold text-card-foreground">
                         {isEditing ? t('profile.editing_profile') : t('profile.profile')}
@@ -260,7 +260,7 @@ const Profile: React.FC = () => {
     }
 
     return (
-        <div className="border border-gray-700 rounded-lg p-8 bg-gray-800">
+        <div className="border bg-card border-border rounded-lg p-8">
             <h1 className="text-2xl font-bold text-white mb-4">{t('profile.no_user_selected')}</h1>
             <p className="text-muted-foreground">{t('profile.select_user_first')}</p>
         </div>
