@@ -19,15 +19,16 @@ A modern, responsive forum application built with **React + TypeScript**, powere
 - **🛡️ Admin panel:**  
   - Manage all users (edit info).  
   - Set post priority (pin/reorder in feed).
+- **🌓 Theme switcher:** Toggle between **light**, **dark**, and **system** themes.
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **⚛️ React** 19 + **TypeScript**
-- **🧭 React Router** v7
+- **🧭 TanStack Router** v1 (File-Based Routing)
 - **📦 Zustand** state management
-- **🎨 Tailwind CSS** for styling
+- **🎨 Tailwind CSS** + **shadcn/ui** for styling, UI components, and theme switching
 - **🌐 i18next** + **react‑i18next** for internationalization
 - **⚡ Vite** for build and dev environment
 
