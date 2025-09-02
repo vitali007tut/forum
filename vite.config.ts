@@ -14,7 +14,7 @@ export default defineConfig({
         react(),
         tailwindcss(),
     ],
-    base: '/forum/',
+    base: 'https://vitali007tut.github.io/forum/',
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
